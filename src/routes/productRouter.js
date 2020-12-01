@@ -8,6 +8,6 @@ productRouter.post('/product', [productValidator.formCreate], ProductController.
 productRouter.get('/product/:id(\\d+)', ProductController.getProduct);
 productRouter.put('/product/:id(\\d+)', [productValidator.formEdit], ProductController.updatedProduct);
 productRouter.delete('/product/:id(\\d+)', ProductController.deleteProduct);
-productRouter.get('/product/:id(\\d+)', ProductController.searchProduct);
+productRouter.get('/product', ProductController.searchProduct);
 
 export default productRouter;

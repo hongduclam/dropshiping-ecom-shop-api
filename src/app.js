@@ -13,6 +13,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const withFakeUser = function (req, res, next) {
+  req.user = req.user ? req.user : {
+    id: -1,
+    name: 'admin'
+  };
+  next();
+};
+app.use(withFakeUser)
 initRouters(app)
 
 app.use((err, req, res, next) => {

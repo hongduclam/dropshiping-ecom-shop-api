@@ -21,8 +21,9 @@ class ProductController {
   }
 
   static async getProduct(req, res, next) {
-    const { id } = req.params;
+    console.log(" req.params", req.params)
     try {
+      const { id } = req.params;
       const product = await ProductService.getProduct(id, req.user);
       return res.status(HttpStatusCode.OK).json(product);
     } catch (error) {
@@ -32,7 +33,8 @@ class ProductController {
 
   static async updatedProduct(req, res, next) {
     try {
-      const updatedProduct = await ProductService.updateProduct(req.body, req.user);
+      const { id } = req.params;
+      const updatedProduct = await ProductService.updateProduct(id, req.body, req.user);
       return res.status(HttpStatusCode.OK).json(updatedProduct);
     } catch (error) {
       next(error)
@@ -40,9 +42,9 @@ class ProductController {
   }
 
   static async deleteProduct(req, res, next) {
-    const { id } = req.params;
     try {
-      const deletedProduct = await ProductService.deleteProduct(id);
+      const { id } = req.params;
+      const deletedProduct = await ProductService.deleteProduct(id, req.user);
       return res.status(HttpStatusCode.OK).json(deletedProduct);
     } catch (error) {
       next(error)

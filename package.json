@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "start": "export NODE_ENV=development && nodemon --exec babel-node ./bin/www",
+    "debug": "nodemon --inspect --exec babel-node ./bin/www",
+    "start-test": "export NODE_ENV=test && nodemon --exec babel-node ./bin/www",
+    "test": "export NODE_ENV=test &&  sequelize db:migrate:undo:all  && sequelize db:migrate  && nyc --require @babel/register  mocha api/test/variables.test.js --timeout 20000 --exit",
     "lint": "eslint ./src --fix"
   },
   "dependencies": {

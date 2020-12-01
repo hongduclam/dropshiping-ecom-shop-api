@@ -6,3 +6,4 @@ Setup ecom shop, orders, customers, products, NODEJS, MYSQL
 - handle error and logging https://www.toptal.com/nodejs/node-js-error-handling
 - validator middleware https://dev.to/joaohencke/validating-schema-with-yup-2iii
 - MVC https://medium.com/stackavenue/why-to-use-service-layer-in-spring-mvc-5f4fc52643c0
+- Setup debug Webstom https://www.jetbrains.com/help/webstorm/running-and-debugging-node-js.html#nodemon

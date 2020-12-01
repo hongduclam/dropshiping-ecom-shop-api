@@ -3,18 +3,21 @@ import {BadRequestError} from "../utils/ErrorUtils";
 
 export default class ProductService {
   static async searchProduct({name, pagingQuery}, currentUser) {
+    const where = {
+      createdBy: currentUser.id
+    };
+    if(name) {
+      where.name = name;
+    }
     return db.Product.findAndCountAll(
       {
-        where: {
-          name,
-          createdBy: currentUser.id
-        },
+        where,
         ...pagingQuery
       }
     )
   }
 
-  static async getProduct({id}, currentUser) {
+  static async getProduct(id, currentUser) {
     const product = await db.Product.findOne({
       where: {
         id,
@@ -22,7 +25,7 @@ export default class ProductService {
       }
     });
     if(!product) {
-      throw BadRequestError('product.notfound', 'product not found')
+      throw new BadRequestError('product.notfound', 'product not found')
     }
     return product;
   }
@@ -58,7 +61,7 @@ export default class ProductService {
       comparePrice: updateProduct.comparePrice || 0,
       cost: updateProduct.cost,
       status: updateProduct.status,
-      lastUpdatedBy: currentUser.id,
+      updatedBy: currentUser.id,
     };
     return product.update(productUpdateModel, {
       where: {

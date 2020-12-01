@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-npx sequelize-cli db:migrate
+export NODE_ENV=test && npx sequelize-cli db:migrate
