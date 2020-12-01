@@ -6,8 +6,13 @@
     "start": "export NODE_ENV=development && nodemon --exec babel-node ./bin/www",
     "debug": "nodemon --inspect --exec babel-node ./bin/www",
     "start-test": "export NODE_ENV=test && nodemon --exec babel-node ./bin/www",
-    "test": "export NODE_ENV=test &&  sequelize db:migrate:undo:all  && sequelize db:migrate  && nyc --require @babel/register  mocha api/test/variables.test.js --timeout 20000 --exit",
-    "lint": "eslint ./src --fix"
+    "test": "export NODE_ENV=test &&  sequelize db:migrate:undo:all  && sequelize db:migrate  && nyc --reporter=lcov --require @babel/register mocha src-test/product.test.js --timeout 20000 --exit",
+    "lint": "eslint ./src --fix",
+    "ut": "mocha",
+    "build": "rm -rf ./build && babel -d ./build ./api -s",
+    "coveralls-coverage": "coveralls < lcov.info",
+    "codeclimate-coverage": "codeclimate-test-reporter < lcov.info",
+    "coverage": "nyc npm test"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -24,9 +29,15 @@
     "@babel/cli": "^7.12.8",
     "@babel/core": "^7.12.9",
     "@babel/node": "^7.12.6",
+    "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.12.7",
+    "@babel/register": "^7.12.1",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "dotenv": "^8.2.0",
     "eslint": "^7.14.0",
+    "mochai": "^0.2.5",
+    "nyc": "^15.1.0",
     "sequelize-cli": "^6.2.0"
   }
 }
