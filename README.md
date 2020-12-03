@@ -10,12 +10,12 @@ Setup ecom shop, orders, customers, products, NODEJS, MYSQL
 - Setup debug Webstom https://www.jetbrains.com/help/webstorm/running-and-debugging-node-js.html#nodemon
 - Unit test: https://github.com/istanbuljs/nyc, https://github.com/istanbuljs/nyc/issues/846, https://www.chaijs.com/, https://mochajs.org/
 ## Install && Setup
-install mysql 8 -> https://dev.mysql.com/doc/refman/8.0/en/installing.html
-install webstome => https://www.jetbrains.com/webstorm/promo/?gclid=Cj0KCQiAk53-BRD0ARIsAJuNhptievZsTlz4MDRzFMbAk0-VEtHmU_-Iqt-US3XbdW3cikC5SNbrlfkaAnHAEALw_wcB&gclsrc=aw.ds
-Install NODEJS -> https://nodejs.org/en/download/
-install Yarn -> https://classic.yarnpkg.com/en/docs/install/#mac-stable
-install git https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-Read Readme https://github.com/hongduclam/dropshiping-ecom-shop-api
+- Install mysql 8 -> https://dev.mysql.com/doc/refman/8.0/en/installing.html
+- Install webstome => https://www.jetbrains.com/webstorm/promo/?gclid=Cj0KCQiAk53-BRD0ARIsAJuNhptievZsTlz4MDRzFMbAk0-VEtHmU_-Iqt-US3XbdW3cikC5SNbrlfkaAnHAEALw_wcB&gclsrc=aw.ds
+- Install NODEJS -> https://nodejs.org/en/download/
+- Install Yarn -> https://classic.yarnpkg.com/en/docs/install/#mac-stable
+- Install git https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+- Read Readme https://github.com/hongduclam/dropshiping-ecom-shop-api
 --- Run BE code
-clone source code: git clone https://github.com/hongduclam/dropshiping-ecom-shop-api
-yarn && yarn start
+- clone source code: git clone https://github.com/hongduclam/dropshiping-ecom-shop-api
+- yarn && yarn start
