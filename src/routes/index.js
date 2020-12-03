@@ -1,8 +1,8 @@
-import productRouter from './productRouter';
+import productRoute from './product.router';
 
 
 const routers = [
-  productRouter
+  productRoute
 ]
 
 export function initRouters(app) {
