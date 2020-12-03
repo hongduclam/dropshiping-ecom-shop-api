@@ -11,17 +11,17 @@ const productApiPath = '/api/v1/product';
 describe('Testing the product endpoints:', () => {
   it('It should create a product', (done) => {
     const product = {
-      "name": "product test",
-      "description": "newProduct.description",
-      "productTypeId": 1,
-      "sku": "newProduct.sku",
-      "barcode": "newProduct.barcode",
-      "isSellingWhenOutOfStock": false,
-      "price": 99.99,
-      "comparePrice": 88.88,
-      "cost": 11.11,
-      "status": 1
-    }
+      name: 'product test',
+      description: 'newProduct.description',
+      productTypeId: 1,
+      sku: 'newProduct.sku',
+      barcode: 'newProduct.barcode',
+      isSellingWhenOutOfStock: false,
+      price: 99.99,
+      comparePrice: 88.88,
+      cost: 11.11,
+      status: 1
+    };
     chai.request(app)
       .post(productApiPath)
       .set('Accept', 'application/json')
@@ -80,7 +80,6 @@ describe('Testing the product endpoints:', () => {
       .set('Accept', 'application/json')
       .end((err, res) => {
         expect(res.status).to.equal(400);
-        // res.body.should.have.property('message').eql(`Cannot find product with the id ${productId}`);
         done();
       });
   });
@@ -88,17 +87,17 @@ describe('Testing the product endpoints:', () => {
   it('It should update a product', (done) => {
     const productId = 1;
     const updatedProduct = {
-      "name": "product test update",
-      "description": "newProduct.description update",
-      "productTypeId": 2,
-      "sku": "newProduct.sku update",
-      "barcode": "newProduct.barcode update",
-      "isSellingWhenOutOfStock": "true",
-      "price": 99.00,
-      "comparePrice": 88.00,
-      "cost": 11.00,
-      "status": 2
-    }
+      name: 'product test update',
+      description: 'newProduct.description update',
+      productTypeId: 2,
+      sku: 'newProduct.sku update',
+      barcode: 'newProduct.barcode update',
+      isSellingWhenOutOfStock: 'true',
+      price: 99.00,
+      comparePrice: 88.00,
+      cost: 11.00,
+      status: 2
+    };
     chai.request(app)
       .put(`${productApiPath}/${productId}`)
       .set('Accept', 'application/json')
@@ -114,16 +113,16 @@ describe('Testing the product endpoints:', () => {
   it('It should not update a product with invalid id', (done) => {
     const productId = 999;
     const updatedProduct = {
-      "name": "product test update",
-      "description": "newProduct.description update",
-      "productTypeId": 2,
-      "sku": "newProduct.sku update",
-      "barcode": "newProduct.barcode update",
-      "isSellingWhenOutOfStock": "true",
-      "price": 99.00,
-      "comparePrice": 88.00,
-      "cost": 11.00,
-      "status": 2
+      name: 'product test update',
+      description: 'newProduct.description update',
+      productTypeId: 2,
+      sku: 'newProduct.sku update',
+      barcode: 'newProduct.barcode update',
+      isSellingWhenOutOfStock: 'true',
+      price: 99.00,
+      comparePrice: 88.00,
+      cost: 11.00,
+      status: 2
     };
     chai.request(app)
       .put(`${productApiPath}/${productId}`)
@@ -131,11 +130,9 @@ describe('Testing the product endpoints:', () => {
       .send(updatedProduct)
       .end((err, res) => {
         expect(res.status).to.equal(400);
-        // res.body.should.have.property('message').eql(`Cannot find product with the id: ${productId}`);
         done();
       });
   });
-
 
   it('It should delete a product', (done) => {
     const productId = 1;

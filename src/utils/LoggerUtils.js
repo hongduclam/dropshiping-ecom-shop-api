@@ -1,8 +1,9 @@
 import winston from 'winston';
-import {AppConfig} from "../../constant";
+import { AppConfig } from '../../constant';
+
 require('winston-daily-rotate-file');
 
-const {format} = winston;
+const { format } = winston;
 const {
   combine, label, json, timestamp
 } = format;
@@ -14,7 +15,7 @@ function createFormat(_label) {
     timestamp({
       format: 'YYYY-MM-DD HH:mm:ss.SSS'
     }),
-    label({label: _label}),
+    label({ label: _label }),
     json()
   );
 }
@@ -81,7 +82,7 @@ export const eventLog = container.get('event');
 export const dbLog = container.get('database');
 
 export const httpStream = {
-  write: message => {
+  write: (message) => {
     httpLog.info(message);
   }
 };

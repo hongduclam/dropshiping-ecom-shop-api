@@ -1,5 +1,5 @@
-import * as yup from "yup";
-import validate from "../middleware/validation";
+import * as yup from 'yup';
+import validate from '../middleware/validation';
 
 const productValidatorCreateSchema = yup.object().shape({
   name: yup.string().required('This field is required.'),

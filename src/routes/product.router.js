@@ -1,7 +1,8 @@
-import ProductController from "../controllers/ProductController";
-import productValidator from "../validators/product.validator";
+import ProductController from '../controllers/ProductController';
+import productValidator from '../validators/product.validator';
 
 const express = require('express');
+
 const productRouter = express.Router();
 
 productRouter.post('/product', [productValidator.formCreate], ProductController.createProduct);

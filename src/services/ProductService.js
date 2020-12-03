@@ -1,12 +1,12 @@
 import db from '../databases/models';
-import {BadRequestError} from "../utils/ErrorUtils";
+import { BadRequestError } from '../utils/ErrorUtils';
 
 export default class ProductService {
-  static async searchProduct({name, pagingQuery}, currentUser) {
+  static async searchProduct({ name, pagingQuery }, currentUser) {
     const where = {
       createdBy: currentUser.id
     };
-    if(name) {
+    if (name) {
       where.name = name;
     }
     return db.Product.findAndCountAll(
@@ -14,7 +14,7 @@ export default class ProductService {
         where,
         ...pagingQuery
       }
-    )
+    );
   }
 
   static async getProduct(id, currentUser) {
@@ -24,8 +24,8 @@ export default class ProductService {
         createdBy: currentUser.id
       }
     });
-    if(!product) {
-      throw new BadRequestError('product.notfound', 'product not found')
+    if (!product) {
+      throw new BadRequestError('product.notfound', 'product not found');
     }
     return product;
   }
@@ -45,7 +45,7 @@ export default class ProductService {
       createdBy: currentUser.id,
       lastUpdatedBy: currentUser.id,
     };
-    return db.Product.create(productCreateModel)
+    return db.Product.create(productCreateModel);
   }
 
   static async updateProduct(id, updateProduct, currentUser) {
@@ -68,7 +68,7 @@ export default class ProductService {
         id,
         createdBy: currentUser.id
       }
-    })
+    });
   }
 
   static async deleteProduct(id, currentUser) {
@@ -78,6 +78,6 @@ export default class ProductService {
         id,
         createdBy: currentUser.id
       }
-    })
+    });
   }
 }

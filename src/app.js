@@ -1,10 +1,11 @@
-import {errorHandler} from "./utils/ErrorUtils";
-import {initRouters} from "./routes";
+import { errorHandler } from './utils/ErrorUtils';
+import { initRouters } from './routes';
 
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+
 const app = express();
 
 app.use(logger('dev'));
@@ -20,17 +21,17 @@ const withFakeUser = function (req, res, next) {
   };
   next();
 };
-app.use(withFakeUser)
-initRouters(app)
+app.use(withFakeUser);
+initRouters(app);
 
 app.use((err, req, res, next) => {
   console.error(`message - ${err.message}, stack trace - ${err.stack}`);
   next(err);
 });
 
-app.use((error, req, res, next) => {
+app.use((error, req, res) => {
   if (!errorHandler.isTrustedError(error)) {
-    const customError = {error: error.message}
+    const customError = { error: error.message };
     res.status(500)
       .json(customError);
     errorHandler.handleError(customError);

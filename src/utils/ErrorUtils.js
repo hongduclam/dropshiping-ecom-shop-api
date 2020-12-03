@@ -1,5 +1,5 @@
-import {appLog} from "./LoggerUtils";
-import {HttpStatusCode} from "../../constant";
+import { appLog } from './LoggerUtils';
+import { HttpStatusCode } from '../../constant';
 
 export class BaseError extends Error {
   constructor(name, httpCode, description, isOperational) {
