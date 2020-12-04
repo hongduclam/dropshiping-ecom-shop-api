@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "export NODE_ENV=development && nodemon --exec babel-node ./bin/www",
+    "start": "cross-env NODE_ENV=development && nodemon --exec babel-node ./bin/www",
     "debug": "nodemon --inspect --exec babel-node ./bin/www",
     "start-test": "export NODE_ENV=test && nodemon --exec babel-node ./bin/www",
     "test": "export NODE_ENV=test &&  sequelize db:migrate:undo:all  && sequelize db:migrate  && nyc --reporter=lcov --require @babel/register mocha src-test/*.test.js --timeout 20000 --exit",
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "cross-env": "^7.0.3",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "morgan": "~1.9.1",

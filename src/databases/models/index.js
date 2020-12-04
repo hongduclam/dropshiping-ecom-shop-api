@@ -1,15 +1,13 @@
-'use strict';
-import {dbLog} from '../../utils/LoggerUtils';
-
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
+
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require('../config/config.json')[env];
+const config = require('../config/config')[env];
 
 function dbLogging(msg) {
-  console.log({msg})
+  console.log({ msg });
   // dbLog.info(msg);
   // dbLog.info(`Timed: ${time} ms`);
 }
@@ -31,7 +29,7 @@ const extendConfig = {
   logging: dbLogging,
   pool,
   dialectOptions
-}
+};
 
 let sequelize;
 if (config.use_env_variable) {
@@ -42,15 +40,16 @@ if (config.use_env_variable) {
 
 fs
   .readdirSync(__dirname)
-  .filter(file => {
+  .filter((file) => {
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
-  .forEach(file => {
+  .forEach((file) => {
+    // eslint-disable-next-line global-require,import/no-dynamic-require
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
   });
 
-Object.keys(db).forEach(modelName => {
+Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
