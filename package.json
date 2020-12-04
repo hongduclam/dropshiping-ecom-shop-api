@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
-    "cross-env": "^7.0.3",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "morgan": "~1.9.1",
@@ -40,7 +39,8 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "mochai": "^0.2.5",
+    "nodemon": "^2.0.6",
     "nyc": "^15.1.0",
-    "sequelize-cli": "^6.2.0"
-  }
+    "sequelize-cli": "^6.2.0",
+    "cross-env": "^7.0.3"}
 }
