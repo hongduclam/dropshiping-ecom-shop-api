@@ -16,6 +16,12 @@ Setup ecom shop, orders, customers, products, NODEJS, MYSQL
 - Install Yarn -> https://classic.yarnpkg.com/en/docs/install/#mac-stable
 - Install git https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 - Read Readme https://github.com/hongduclam/dropshiping-ecom-shop-api
+--- Setting Database
+- create schema ds_store;
+- yarn migrate
 --- Run BE code
 - clone source code: git clone https://github.com/hongduclam/dropshiping-ecom-shop-api
+- creating .env file and put this `NODE_ENV=development` `PORT=8080`
 - yarn && yarn start
+--- RUn Unit test
+- yarn test

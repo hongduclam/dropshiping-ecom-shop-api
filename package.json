@@ -7,6 +7,7 @@
     "debug": "nodemon --inspect --exec babel-node ./bin/www",
     "start-test": "export NODE_ENV=test && nodemon --exec babel-node ./bin/www",
     "test": "export NODE_ENV=test &&  sequelize db:migrate:undo:all  && sequelize db:migrate  && nyc --reporter=lcov --require @babel/register mocha src-test/*.test.js --timeout 20000 --exit",
+    "migrate": "cross-env NODE_ENV=development && sequelize db:migrate:undo:all && sequelize db:migrate",
     "lint": "eslint ./src --fix",
     "ut": "mocha",
     "build": "rm -rf ./build && babel -d ./build ./api -s",
