@@ -22,6 +22,11 @@ const withFakeUser = function (req, res, next) {
   next();
 };
 app.use(withFakeUser);
+
+app.get('/', (req, res) => {
+  res.send('Welcome to new world');
+});
+
 initRouters(app);
 
 app.use((err, req, res, next) => {
